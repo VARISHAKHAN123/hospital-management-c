@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+    </header>
+
+    <div class="product-details">
+        <h2 id="product-name"></h2>
+        <p id="product-price"></p>
+        <button id="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const price = params.get('price');
+
+        document.getElementById("product-name").innerText = name;
+        document.getElementById("product-price").innerText = "$" + price;
+
+        document.getElementById("add-to-cart-btn").addEventListener("click", function() {
+            addToCart(parseInt(price), name);
+        });
+    </script>
+</body>
+</html>
